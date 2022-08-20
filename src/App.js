@@ -57,7 +57,7 @@ export default function App() {
   }
 
   function onChange(str) {
-    var xyz = document.querySelectorAll("form .btn-chg button");
+    var xyz = document.querySelectorAll("form .btn-chg div");
     // for(int i=0;i<xyz.length();i++)
     xyz.forEach((e) => {
       //e is xyz[i]
@@ -110,8 +110,13 @@ export default function App() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            var amount = input.amt * (transType === "exp" ? -1 : 1);
-            setHistory([...history, { amt: amount, desc: input.desc }]);
+            if (input.desc === "" || input.amt <= 0) {
+              alert("Wrong Inputs!!!");
+            } else {
+              var amount = input.amt * (transType === "exp" ? -1 : 1);
+              setHistory([...history, { amt: amount, desc: input.desc }]);
+            }
+
             e.target.reset();
           }}
         >
@@ -139,27 +144,25 @@ export default function App() {
             }}
           />
           <div className="btn-chg">
-            <button
+            <div
               className="inc"
               onClick={(e) => {
-                e.preventDefault();
                 onChange("inc");
               }}
             >
               Income
-            </button>
-            <button
+            </div>
+            <div
               className="exp changer"
               onClick={(e) => {
-                e.preventDefault();
                 onChange("exp");
               }}
             >
               Expense
-            </button>
+            </div>
           </div>
           <small>Green or Red is the selected one</small>
-          <button type="submit" disabled={input.desc == ""}>
+          <button type="submit" disabled={input.desc === ""}>
             Add transaction
           </button>
         </form>

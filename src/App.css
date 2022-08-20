@@ -98,7 +98,7 @@
   height: 70%;
   width: 25px;
   position: absolute;
-  left: -2px;
+  left: -25px;
   border: none;
   background-color: var(--clr-primary-red);
   font-size: medium;
@@ -160,22 +160,26 @@
   box-shadow: 0 0 10px grey;
 }
 
-#home .trans form .btn-chg button {
+#home .trans form .btn-chg div {
   cursor: pointer;
   width: 50%;
   height: 100%;
   border: none;
   background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   font-weight: bold;
   text-transform: uppercase;
   font-size: small;
   color: white;
   text-shadow: 0 0 2px black, 0 0 2px black;
 }
-#home .trans form .btn-chg button:nth-of-type(0n + 1) {
+#home .trans form .btn-chg div:nth-of-type(0n + 1) {
   border-right: 1px solid grey;
 }
-#home .trans form .btn-chg button:nth-of-type(n + 2) {
+#home .trans form .btn-chg div:nth-of-type(n + 2) {
   border-left: 1px solid grey;
 }
 #home .trans form .btn-chg .inc.changer {
